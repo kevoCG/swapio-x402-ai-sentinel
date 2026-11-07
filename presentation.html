@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Liquidity Sentinel & Swap.io x402 Architecture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      background-color: #07090E;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass {
+      background: linear-gradient(135deg, rgba(18, 23, 33, 0.9) 0%, rgba(11, 14, 20, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+    }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .solana-gradient {
+      background: linear-gradient(135deg, #14F195 0%, #9945FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="p-8 space-y-12">
+
+  <!-- SLIDE 1: HOOK & TITLE -->
+  <div class="slide glass rounded-2xl shadow-2xl relative" id="slide-1">
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="flex justify-between items-center z-10">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-gradient-to-r from-emerald-400 to-purple-600 flex items-center justify-center font-bold text-black text-xl shadow-lg shadow-purple-500/20">⚡</span>
+        <span class="font-bold text-lg tracking-wider text-gray-300">0xQueryLab • Web3 Architecture</span>
+      </div>
+      <div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs mono text-emerald-400 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Superteam Bounty • Swap.io Agent API
+      </div>
+    </div>
+
+    <div class="space-y-4 my-auto z-10">
+      <div class="text-xs uppercase font-mono tracking-widest text-purple-400 font-bold">Use Case Pitch • Autonomous Agents</div>
+      <h1 class="text-5xl font-extrabold tracking-tight leading-tight">
+        AI Liquidity Sentinel <br/>
+        <span class="solana-gradient">Sub-Cent Micro-Metered Routing via x402</span>
+      </h1>
+      <p class="text-lg text-gray-400 max-w-2xl leading-relaxed">
+        Why autonomous agents shouldn't pay $500 monthly SaaS subscriptions for API keys. Programmatic pay-per-quote swap execution natively settled on Solana.
+      </p>
+    </div>
+
+    <div class="flex justify-between items-center pt-6 border-t border-white/5 text-xs text-gray-500 z-10">
+      <div>Engineered by <strong>Kevin Cabrera (@0xQueryLab / @kevoCG)</strong></div>
+      <div class="flex items-center gap-4">
+        <span>Sponsor: <strong>@swapdotio</strong></span>
+        <span>•</span>
+        <span>Standard: <strong>HTTP 402 Payment Required</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: THE ARCHITECTURE -->
+  <div class="slide glass rounded-2xl shadow-2xl relative" id="slide-2">
+    <div class="flex justify-between items-center z-10 pb-4 border-b border-white/5">
+      <div>
+        <span class="text-xs font-mono text-purple-400 uppercase font-bold">Architecture & Workflow</span>
+        <h2 class="text-2xl font-bold text-white mt-1">The AI Liquidity Sentinel in Action</h2>
+      </div>
+      <span class="px-3 py-1 rounded bg-purple-900/40 text-purple-300 text-xs font-mono border border-purple-700/50">Zero Subscription Waste</span>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6 my-auto z-10">
+      <div class="glass p-6 rounded-xl border border-white/10 space-y-3">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl font-bold">1</div>
+        <h3 class="text-lg font-bold text-white">Continuous Free On-Chain Monitoring</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          The agent listens to Solana RPC events & Whirlpool liquidity ticks for free. Zero API costs while the market is quiet.
+        </p>
+        <div class="p-2.5 rounded bg-black/40 border border-white/5 text-[11px] font-mono text-blue-300">
+          Trigger: Skew > 80% & Volatility Spike
+        </div>
+      </div>
+
+      <div class="glass p-6 rounded-xl border border-purple-500/30 space-y-3 shadow-lg shadow-purple-500/10">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl font-bold">2</div>
+        <h3 class="text-lg font-bold text-white">Swap.io x402 Micropayment</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Agent requests a quote from Hermes (<span class="font-mono text-purple-300">https://hermes.swap.io</span>). Server returns HTTP 402 with pay-to address.
+        </p>
+        <div class="p-2.5 rounded bg-black/40 border border-purple-500/20 text-[11px] font-mono text-purple-300">
+          Cost: 4,405 µUSDC (~$0.0044/call)
+        </div>
+      </div>
+
+      <div class="glass p-6 rounded-xl border border-emerald-500/30 space-y-3 shadow-lg shadow-emerald-500/10">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold">3</div>
+        <h3 class="text-lg font-bold text-white">Instant Route & Execution</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Agent signs the micropayment on Solana, receives the optimal multi-DEX route, and broadcasts the rebalance in milliseconds.
+        </p>
+        <div class="p-2.5 rounded bg-black/40 border border-emerald-500/20 text-[11px] font-mono text-emerald-300">
+          Settlement: Real-time on Solana
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-4 border-t border-white/5 text-xs text-gray-500 flex justify-between z-10">
+      <span>Self-Governed AI Treasury • No Humans in the Loop</span>
+      <span>Docs: docs.swap.io</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: PROTOCOL EVIDENCE (HTTP 402 IN ACTION) -->
+  <div class="slide glass rounded-2xl shadow-2xl relative" id="slide-3">
+    <div class="flex justify-between items-center z-10 pb-4 border-b border-white/5">
+      <div>
+        <span class="text-xs font-mono text-emerald-400 uppercase font-bold">Empirical Verification</span>
+        <h2 class="text-2xl font-bold text-white mt-1">Real Raw HTTP 402 Handshake on Swap.io</h2>
+      </div>
+      <div class="px-3 py-1 rounded bg-emerald-900/40 text-emerald-300 text-xs font-mono border border-emerald-700/50">
+        Status: 402 Payment Required
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 my-auto z-10">
+      <div class="glass p-5 rounded-xl border border-white/10 space-y-3">
+        <div class="text-xs font-mono text-gray-400 uppercase font-bold flex items-center gap-2">
+          <i class="fa-solid fa-arrow-up-right-from-square text-purple-400"></i> Agent Outgoing Request
+        </div>
+        <pre class="bg-black/60 p-4 rounded-lg text-[11px] font-mono text-gray-300 leading-relaxed border border-white/5">
+POST /v1/swap/quote HTTP/1.1
+Host: hermes.swap.io
+Content-Type: application/json
+
+{
+  "from": "sol",
+  "to": "usdc",
+  "amount": "100000000",
+  "slippage": 50
+}</pre>
+        <p class="text-xs text-gray-400">Agent requests quote for 0.1 SOL swap without any pre-existing API key or user account.</p>
+      </div>
+
+      <div class="glass p-5 rounded-xl border border-emerald-500/30 space-y-3">
+        <div class="text-xs font-mono text-emerald-400 uppercase font-bold flex items-center gap-2">
+          <i class="fa-solid fa-arrow-down-left-and-up-right-to-center text-emerald-400"></i> Swap.io Hermes x402 Response
+        </div>
+        <pre class="bg-black/60 p-4 rounded-lg text-[11px] font-mono text-emerald-300 leading-relaxed border border-white/5 overflow-x-auto">
+HTTP/1.1 402 Payment Required
+Content-Type: application/json
+
+{
+  "x402Version": 1,
+  "accepts": [{
+    "network": "solana",
+    "resource": "https://hermes.swap.io/v1/swap/quote",
+    "payTo": "BPz2u6eoWLervxEqfpsMCVmKk7h6fEVsd7L5rvEibMfD",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "maxAmountRequired": "4405"
+  }]
+}</pre>
+        <p class="text-xs text-gray-400">Demands exact micropayment of 4,405 µUSDC (~$0.0044) to settle on Solana Mainnet.</p>
+      </div>
+    </div>
+
+    <div class="pt-4 border-t border-white/5 text-xs text-gray-500 flex justify-between z-10">
+      <span>Live Endpoint Tested: hermes.swap.io/v1/swap/quote</span>
+      <span>Protocol Standard: x402.org</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: WHY x402 BEATS TRADITIONAL APIS -->
+  <div class="slide glass rounded-2xl shadow-2xl relative" id="slide-4">
+    <div class="flex justify-between items-center z-10 pb-4 border-b border-white/5">
+      <div>
+        <span class="text-xs font-mono text-purple-400 uppercase font-bold">Comparative Advantage</span>
+        <h2 class="text-2xl font-bold text-white mt-1">Traditional Web2 APIs vs. Swap.io x402</h2>
+      </div>
+      <span class="px-3 py-1 rounded bg-blue-900/40 text-blue-300 text-xs font-mono border border-blue-700/50">Designed for AI</span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 my-auto z-10">
+      <div class="glass p-6 rounded-xl border border-red-500/20 bg-red-950/10 space-y-4">
+        <h3 class="text-lg font-bold text-red-400 flex items-center gap-2">
+          <i class="fa-solid fa-xmark"></i> Traditional Web2 SaaS APIs
+        </h3>
+        <ul class="space-y-3 text-xs text-gray-300">
+          <li class="flex items-start gap-2">
+            <span class="text-red-400 font-bold">•</span>
+            <span><strong>Human Identity & KYC Required:</strong> Needs corporate credit cards and human registration before any call can be made.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-400 font-bold">•</span>
+            <span><strong>Expensive Fixed Tiers:</strong> $200–$500/month flat subscriptions. If the agent is idle during quiet weeks, capital is wasted.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-400 font-bold">•</span>
+            <span><strong>API Key Leakage Risk:</strong> Static tokens stored in agent environment files susceptible to extraction and theft.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glass p-6 rounded-xl border border-emerald-500/30 bg-emerald-950/10 space-y-4 shadow-lg shadow-emerald-500/10">
+        <h3 class="text-lg font-bold text-emerald-400 flex items-center gap-2">
+          <i class="fa-solid fa-check"></i> Swap.io x402 Native Protocol
+        </h3>
+        <ul class="space-y-3 text-xs text-gray-300">
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">•</span>
+            <span><strong>100% Machine-to-Machine:</strong> Agents self-fund from on-chain wallets without humans, cards, or accounts.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">•</span>
+            <span><strong>Exact Micro-Metering:</strong> Pay only $0.0044 per actual quote needed. Zero idle cost during low-volatility periods.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">•</span>
+            <span><strong>Cryptographic Settlement:</strong> Settled instantaneously with Solana USDC with immutable on-chain proof.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-4 border-t border-white/5 text-xs text-gray-500 flex justify-between z-10">
+      <span>Capital Efficiency: >95% reduction in API overhead for burst-driven AI agents</span>
+      <span>Autonomous Finance Primative</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: CONCLUSION & CTA -->
+  <div class="slide glass rounded-2xl shadow-2xl relative text-center" id="slide-5">
+    <div class="space-y-4 my-auto z-10 max-w-3xl mx-auto">
+      <div class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
+        The Future of Autonomous On-Chain Commerce
+      </div>
+      <h2 class="text-4xl font-extrabold tracking-tight text-white leading-tight">
+        Build Autonomous Agents That <br/>
+        <span class="solana-gradient">Pay Only For What They Execute</span>
+      </h2>
+      <p class="text-base text-gray-400 leading-relaxed">
+        Swap.io x402 is the foundational financial primitive for trading bots, rebalancers, and decentralized research agents on Solana.
+      </p>
+
+      <div class="flex justify-center items-center gap-6 pt-6">
+        <div class="p-4 rounded-xl glass border border-white/10 text-left">
+          <div class="text-[10px] text-gray-500 font-mono uppercase">Agent Endpoint</div>
+          <div class="text-xs font-mono text-purple-300 font-bold">https://hermes.swap.io</div>
+        </div>
+        <div class="p-4 rounded-xl glass border border-white/10 text-left">
+          <div class="text-[10px] text-gray-500 font-mono uppercase">Developer Docs</div>
+          <div class="text-xs font-mono text-emerald-300 font-bold">docs.swap.io</div>
+        </div>
+        <div class="p-4 rounded-xl glass border border-white/10 text-left">
+          <div class="text-[10px] text-gray-500 font-mono uppercase">Built by</div>
+          <div class="text-xs font-mono text-white font-bold">@0xQueryLab (Kevin Cabrera)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-4 border-t border-white/5 text-xs text-gray-500 flex justify-between z-10">
+      <span>Tagging: @swapdotio • @Superteam</span>
+      <span>Superteam Earn Bounty Submission</span>
+    </div>
+  </div>
+
+</body>
+</html>
